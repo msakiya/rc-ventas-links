@@ -45,6 +45,10 @@
     background-color: #0056b3;
   }
 </style>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#007AFF">
+<link rel="apple-touch-icon" href="icon.svg">
 </head>
 <body>
 
@@ -217,6 +221,14 @@ function fallbackCopy(text, successCallback) {
         alert('Error al copiar el texto.');
     }
     document.body.removeChild(textArea);
+}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log('Service Worker registrado'))
+    .catch(err => console.log('Error en Service Worker', err));
 }
 </script>
 </body>
